@@ -7,7 +7,7 @@ export class Home extends Component {
   render() {
     return (
       <div className={ styles.default }>
-        <div>I am the Home component</div>
+        <h1>Go to party.vevo.com on your phone to manage queue!</h1>
         <video autoPlay src={videoSrc}></video>
       </div>
     );

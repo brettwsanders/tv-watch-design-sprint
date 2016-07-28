@@ -11,8 +11,8 @@ const mapDispatchToProps = (dispatch) => {
   // dispatch(fetchRatesIfNeeded(['GBP', 'USD', 'EUR']));
 
   return {
-    // onIncrementCounter: () => { dispatch(increment()) },
-    // onDecrementCounter: () => { dispatch(decrement()) },
+    onEnded: () => { dispatch(popOffQueue()) },
+    onGetQueue: () => { dispatch(updateQueue()) },
     // onChangeConverterAmount: (amount) => { dispatch(setAmount(amount)) },
     // onChangeConverterCurrency: (currency) => { dispatch(setCurrency(currency)) }
   };
