@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 
   return {
-    getQueue: () => { dispatch(getQueue) }
+    getQueue: () => { dispatch(getQueue()) },
     onPause: () => { console.log('I am paused')}
   };
 };

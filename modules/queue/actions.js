@@ -1,6 +1,8 @@
 import * as types from './actionTypes';
 import { getNextStream } from 'modules/stream/actions'
 
+const api = 'http://4f5d8066.ngrok.io'
+
 //SYNC
 export function addQueue(queue = []) {
   return {
@@ -13,25 +15,22 @@ export function addQueue(queue = []) {
 export function getQueue() {
   console.log('in getQueue!')
   return dispatch => {
-    //TODO: add actual url
-    const api = 'someapi.com'
-    return fetch(api, {
-      method: 'get'
+    return fetch(`${api}/api/queue/pop`, {
+      method: 'post'
     })
     .then(response => response.json())
-    .then(json => {
-      const queue = [...json]
-      const nextIsrc = queue.shift()
-      dispatch(addQueue(queue))
-      dispatch(getNextStream(nextIsrc))
+    .then(video => {
+      console.log('video is', video)
+      // dispatch(addQueue(video))
+      dispatch(getNextStream(video.isrc))
     })
+    .catch(error => console.log('error', error))
   }
 }
 
 export function videoEnded() {
+  console.log('in videoEnded')
   return dispatch => {
-    //TODO: add actual url
-    const api = 'someapi.com'
     return fetch(api, {
       method: 'delete'
     })

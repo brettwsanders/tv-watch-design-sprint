@@ -10,6 +10,7 @@ export function addStream(stream) {
 
 //ASYNC
 export function getNextStream(isrc) {
+  console.log('in getNextStream::isrc is', isrc)
   return (dispatch, getState) => {
     const token = getState().auth.access_token;
     const api = `https://apiv2.vevo.com/video/${isrc}/streams/mp4`
@@ -19,8 +20,11 @@ export function getNextStream(isrc) {
       headers: {
         'Authorization': `Bearer ${token}`
       }
-      .then(response => response.json())
-      .then(json => dispatch(addStream(json)))
+    })
+    .then(response => response.json())
+    .then(streams => {
+      const stream = streams[0].url
+      dispatch(addStream(stream))
     })
   }
 }
