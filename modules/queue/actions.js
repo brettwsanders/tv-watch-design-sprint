@@ -1,7 +1,7 @@
 import * as types from './actionTypes';
 import { getNextStream } from 'modules/stream/actions'
 
-const api = 'http://4f5d8066.ngrok.io'
+const api = 'https://vevo-tv-party.herokuapp.com'
 
 //SYNC
 export function addQueue(queue = []) {

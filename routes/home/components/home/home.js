@@ -20,12 +20,13 @@ export class Home extends Component {
       <div className={ styles.default }>
         <div>
           <img src='/images/vevo-logo.png' />
-          <h4>Go here on your phone to add songs to the queue</h4>
-          <h1>http://4f5d8066.ngrok.io</h1>
+          <h3>Go here on your phone to add songs to the party queue</h3>
+          <h1>vevo-tv-party.herokuapp.com</h1>
         </div>
         <video
           ref={(ref) => this.videoElement = ref}
           autoPlay
+          onEnded={this.props.getQueue}
           src={this.props.stream}
         >
         </video>
