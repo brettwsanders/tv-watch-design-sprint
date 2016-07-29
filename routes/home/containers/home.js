@@ -14,6 +14,7 @@ const mapDispatchToProps = (dispatch) => {
 
   return {
     getQueue: () => { dispatch(getQueue) }
+    onPause: () => { console.log('I am paused')}
   };
 };
 

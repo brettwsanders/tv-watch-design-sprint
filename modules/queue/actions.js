@@ -11,6 +11,7 @@ export function addQueue(queue = []) {
 
 //ASYNC
 export function getQueue() {
+  console.log('in getQueue!')
   return dispatch => {
     //TODO: add actual url
     const api = 'someapi.com'
