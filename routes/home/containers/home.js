@@ -1,20 +1,19 @@
 import { connect } from 'react-redux';
 import { Home } from '../components/home';
 
+import { getToken } from 'modules/auth/actions';
+import { getQueue } from 'modules/queue/actions'
+
 const mapStateToProps = (state) => {
   return {
-    queue: state.queue
+    stream: state.stream
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  // dispatch(fetchRatesIfNeeded(['GBP', 'USD', 'EUR']));
 
   return {
-    onEnded: () => { dispatch(popOffQueue()) },
-    onGetQueue: () => { dispatch(updateQueue()) },
-    // onChangeConverterAmount: (amount) => { dispatch(setAmount(amount)) },
-    // onChangeConverterCurrency: (currency) => { dispatch(setCurrency(currency)) }
+    getQueue: () => { dispatch(getQueue) }
   };
 };
 

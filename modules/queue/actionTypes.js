@@ -1,2 +1,1 @@
-export const UPDATE_QUEUE = 'UPDATE_QUEUE';
-export const POP_OFF_QUEUE = 'POP_OFF_QUEUE';
+export const ADD_QUEUE = 'ADD_QUEUE';
