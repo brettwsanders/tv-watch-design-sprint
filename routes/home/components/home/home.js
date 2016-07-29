@@ -2,28 +2,39 @@ import React, { Component } from 'react';
 import styles from './home.scss';
 
 export class Home extends Component {
-  // componentWillReceiveProps(nextProps) {
-  //   console.log('nextProps are', nextProps)
-  // }
+
+  componentDidMount() {
+    window.setTimeout(() => {
+      this.props.getQueue()
+    }, 1000)
+  }
 
   shouldComponentUpdate(nextProps) {
     const shouldUpdate = this.props.stream !== nextProps.stream;
-    console.log('Updating component: ', shouldUpdate);
+    // console.log('Updating component: ', shouldUpdate);
     return shouldUpdate;
   }
 
   render() {
     return (
       <div className={ styles.default }>
-        <h1>Go to party.vevo.com on your phone to manage queue!</h1>
+        <div>
+          <img src='/images/vevo-logo.png' />
+          <h4>Go here on your phone to add songs to the queue</h4>
+          <h1>http://4f5d8066.ngrok.io</h1>
+        </div>
         <video
+          ref={(ref) => this.videoElement = ref}
           autoPlay
-          controls
           src={this.props.stream}
-          onEnded={this.props.getQueue}
-          onPause={this.props.onPause}
         >
         </video>
+        <button
+          ref={(ref) => this.skipButton = ref}
+          onClick={this.props.getQueue}
+        >
+          Skip
+        </button>
       </div>
     );
   }

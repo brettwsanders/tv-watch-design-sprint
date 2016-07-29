@@ -21,7 +21,6 @@ export function getQueue() {
     .then(response => response.json())
     .then(video => {
       console.log('video is', video)
-      // dispatch(addQueue(video))
       dispatch(getNextStream(video.isrc))
     })
     .catch(error => console.log('error', error))

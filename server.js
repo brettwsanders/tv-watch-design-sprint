@@ -12,6 +12,7 @@ app.use(webpackDevMiddleware(compiler, {
   publicPath: config.output.publicPath
 }));
 app.use(webpackHotMiddleware(compiler));
+app.use(require('express').static('assets'));
 
 app.use(function(req, res) {
   res.sendFile(__dirname + '/index.html');

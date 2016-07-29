@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { Home } from '../components/home';
 
-import { getToken } from 'modules/auth/actions';
 import { getQueue } from 'modules/queue/actions'
 
 const mapStateToProps = (state) => {
@@ -13,8 +12,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 
   return {
-    getQueue: () => { dispatch(getQueue()) },
-    onPause: () => { console.log('I am paused')}
+    getQueue: () => { dispatch(getQueue()) }
   };
 };
 
