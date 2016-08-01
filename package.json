@@ -32,11 +32,11 @@
     "sass-loader": "^3.0.0",
     "style-loader": "^0.12.4",
     "url-loader": "^0.5.6",
-    "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.4.1"
   },
   "dependencies": {
+    "webpack": "^1.12.2",
     "history": "^1.12.6",
     "react": "^0.14.0-rc1",
     "react-dom": "^0.14.0-rc1",
