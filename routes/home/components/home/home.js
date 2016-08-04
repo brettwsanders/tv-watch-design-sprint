@@ -19,9 +19,10 @@ export class Home extends Component {
     return (
       <div className={ styles.default }>
         <div>
-          <img src='/images/vevo-logo.png' />
-          <h3>Go here on your phone to add songs to the party queue</h3>
-          <h1>vevo-tv-party.herokuapp.com</h1>
+          <img
+            src='/images/vevo-logo.png'
+            onClick={this.props.getQueue}
+          />
         </div>
         <video
           ref={(ref) => this.videoElement = ref}
@@ -30,12 +31,6 @@ export class Home extends Component {
           src={this.props.stream}
         >
         </video>
-        <button
-          ref={(ref) => this.skipButton = ref}
-          onClick={this.props.getQueue}
-        >
-          Skip
-        </button>
       </div>
     );
   }
