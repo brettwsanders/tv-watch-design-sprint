@@ -17,7 +17,7 @@ export class Home extends Component {
   render() {
     return (
       <div className={ styles.default }>
-        <div>
+        <div className={ styles.logo }>
           <img
             src='/images/vevo-logo.png'
             onClick={this.props.getVideo}
@@ -30,7 +30,11 @@ export class Home extends Component {
           src={this.props.stream}
         >
         </video>
-        <p>{'vevo-tv-party.herokuapp.com'}</p>
+        <div className={ styles.metadata }>
+          <p><span>{this.props.video.artist}</span></p>
+          <p><span>{this.props.video.title}</span></p>
+          <p>{'vevo-tv-party.herokuapp.com'}</p>
+        </div>
       </div>
     );
   }

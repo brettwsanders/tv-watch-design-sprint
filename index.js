@@ -19,7 +19,7 @@ import routes from './config/routes';
 const initialState = {
   // You can add any initial state you want to app to start with here...
   auth: '',
-  queue: [],
+  video: {},
   stream: ''
 };
 

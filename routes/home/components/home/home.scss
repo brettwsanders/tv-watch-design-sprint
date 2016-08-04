@@ -1,18 +1,6 @@
 .default {
   height: 100vh;
   width: 100vw;
-  text-align: center;
-
-  div {
-    margin: 1rem 0;
-    background: rgba(0,0,0,0.4);
-  }
-
-  img {
-    width: 100px;
-    float: left;
-    margin-left: 1rem;
-  }
 
   video {
     position: fixed;
@@ -26,13 +14,37 @@
     transform: translateX(-50%) translateY(-50%);
     transition: 1s opacity;
   }
+}
+
+.logo {
+  width: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0.4));
+  text-align: left;
+  padding: 1rem 0 2.5rem 1rem;
+
+  img {
+    width: 100px;
+  }
+}
+
+
+.metadata {
+  position: fixed;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.4));
+  bottom: 0;
+  right: 0;
+  padding: 2.5rem 1rem 1rem 0;
+  text-align: right;
 
   p {
-    position: fixed;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
-    bottom: 0;
-    right: 0;
     color: white;
+    margin: 0;
+
+    span {
+      font-weight: bold;
+    }
   }
+
+
 }
