@@ -26,4 +26,13 @@
     transform: translateX(-50%) translateY(-50%);
     transition: 1s opacity;
   }
+
+  p {
+    position: fixed;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    bottom: 0;
+    right: 0;
+    color: white;
+  }
 }

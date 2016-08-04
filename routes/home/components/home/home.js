@@ -30,6 +30,7 @@ export class Home extends Component {
           src={this.props.stream}
         >
         </video>
+        <p>{'vevo-tv-party.herokuapp.com'}</p>
       </div>
     );
   }

@@ -20,7 +20,7 @@ export function getVideo() {
     .then(response => response.json())
     .then(video => {
       if (video.length === 0) {
-        const prevIsrc = getState().video.isrc
+        const prevIsrc = getState().video.isrc || 'GB1101501456' //hard-code fallback video if all else fails
         dispatch(getRelatedVideo(prevIsrc))
       } else {
         dispatch(addVideo(video))
