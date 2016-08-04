@@ -1,5 +1,6 @@
 import * as types from './actionTypes';
 import { getNextStream } from 'modules/stream/actions'
+import * as helpers from './helpers'
 
 const api = 'https://vevo-tv-party.herokuapp.com' //production
 
@@ -44,7 +45,7 @@ export function getRelatedVideo(isrc) {
     })
     .then(response => response.json())
     .then(videos => {
-      const nextVid = videos[0]
+      const nextVid = helpers.getRandom(videos)
       dispatch(addVideo(nextVid))
       dispatch(getNextStream(nextVid.isrc))
     })
