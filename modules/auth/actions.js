@@ -10,7 +10,6 @@ export function addToken(token) {
 
 //ASYNC
 export function getToken() {
-  console.log('in getToken')
   return dispatch => {
     const api = 'https://apiv2.vevo.com/oauth/token?client_id=67d63a8b4a90400d813969904d694272&client_secret=d82ad59122244d3396c738e163d07be1&grant_type=client_credentials'
     return fetch(api, {

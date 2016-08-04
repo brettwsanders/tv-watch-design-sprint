@@ -1,0 +1,53 @@
+import * as types from './actionTypes';
+import { getNextStream } from 'modules/stream/actions'
+
+const api = 'https://vevo-tv-party.herokuapp.com' //production
+
+//SYNC
+export function addVideo(video = {}) {
+  return {
+    type: types.ADD_VIDEO,
+    video
+  };
+};
+
+//ASYNC
+export function getVideo() {
+  return (dispatch, getState) => {
+    return fetch(`${api}/api/queue/pop`, {
+      method: 'post'
+    })
+    .then(response => response.json())
+    .then(video => {
+      if (video.length === 0) {
+        const prevIsrc = getState().video.isrc
+        dispatch(getRelatedVideo(prevIsrc))
+      } else {
+        dispatch(addVideo(video))
+        dispatch(getNextStream(video.isrc))
+      }
+    })
+    .catch(error => console.log('[getVideo]', error))
+  }
+}
+
+export function getRelatedVideo(isrc) {
+  return (dispatch, getState) => {
+    const token = getState().auth.access_token;
+    const api = `https://apiv2.vevo.com/video/${isrc}/related`
+    //TODO: add check for no token
+    return fetch(api, {
+      method: 'get',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+    .then(response => response.json())
+    .then(videos => {
+      const nextVid = videos[0]
+      dispatch(addVideo(nextVid))
+      dispatch(getNextStream(nextVid.isrc))
+    })
+    .catch(error => console.log('[getRelatedVideo]', error))
+  }
+}

@@ -5,13 +5,12 @@ export class Home extends Component {
 
   componentDidMount() {
     window.setTimeout(() => {
-      this.props.getQueue()
+      this.props.getVideo()
     }, 1000)
   }
 
   shouldComponentUpdate(nextProps) {
     const shouldUpdate = this.props.stream !== nextProps.stream;
-    // console.log('Updating component: ', shouldUpdate);
     return shouldUpdate;
   }
 
@@ -21,13 +20,13 @@ export class Home extends Component {
         <div>
           <img
             src='/images/vevo-logo.png'
-            onClick={this.props.getQueue}
+            onClick={this.props.getVideo}
           />
         </div>
         <video
           ref={(ref) => this.videoElement = ref}
           autoPlay
-          onEnded={this.props.getQueue}
+          onEnded={this.props.getVideo}
           src={this.props.stream}
         >
         </video>

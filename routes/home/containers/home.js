@@ -1,18 +1,19 @@
 import { connect } from 'react-redux';
 import { Home } from '../components/home';
 
-import { getQueue } from 'modules/queue/actions'
+import { getVideo } from 'modules/video/actions'
 
 const mapStateToProps = (state) => {
   return {
-    stream: state.stream
+    stream: state.stream,
+    video: state.video
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
 
   return {
-    getQueue: () => { dispatch(getQueue()) }
+    getVideo: () => { dispatch(getVideo()) }
   };
 };
 
