@@ -39,7 +39,7 @@ export function getRelatedVideo(isrc) {
   console.log('getRelatedVideo');
   return (dispatch, getState) => {
     const token = getState().auth.access_token;
-    const api = `https://apiv2.vevo.com/video/${isrc}/related`
+    const api = `https://apiv2.vevo.com/video/${isrc}/related?isExplicit=false`
     //TODO: add check for no token
     return fetch(api, {
       method: 'get',
