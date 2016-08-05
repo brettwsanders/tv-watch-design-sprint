@@ -7,6 +7,14 @@ export class Home extends Component {
     window.setTimeout(() => {
       this.props.getVideo()
     }, 1000)
+
+    //show cursor on mousemove for 5 seconds
+    window.addEventListener('mousemove', () => {
+      document.body.style.cursor = 'default';
+      window.setTimeout(() => {
+        document.body.style.cursor = 'none';
+      }, 5000);
+    });
   }
 
   shouldComponentUpdate(nextProps) {
