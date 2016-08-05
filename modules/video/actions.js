@@ -7,6 +7,7 @@ const api = 'https://vevo-tv-party.herokuapp.com' //production
 //SYNC
 export function addVideo(video = {}) {
   console.log('addVideo');
+  video.artist = helpers.buildArtistString(video.artists);
   return {
     type: types.ADD_VIDEO,
     video
