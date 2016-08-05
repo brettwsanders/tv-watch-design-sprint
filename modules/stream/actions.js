@@ -2,6 +2,7 @@ import * as types from './actionTypes';
 
 //SYNC
 export function addStream(stream) {
+  console.log('addStream');
   return {
     type: types.ADD_STREAM,
     stream
@@ -10,7 +11,7 @@ export function addStream(stream) {
 
 //ASYNC
 export function getNextStream(isrc) {
-  console.log('isrc is', isrc)
+  console.log('getNextStream')
   return (dispatch, getState) => {
     const token = getState().auth.access_token;
     const api = `https://apiv2.vevo.com/video/${isrc}/streams/mp4`

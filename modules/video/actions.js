@@ -6,6 +6,7 @@ const api = 'https://vevo-tv-party.herokuapp.com' //production
 
 //SYNC
 export function addVideo(video = {}) {
+  console.log('addVideo');
   return {
     type: types.ADD_VIDEO,
     video
@@ -14,6 +15,7 @@ export function addVideo(video = {}) {
 
 //ASYNC
 export function getVideo() {
+  console.log('getVideo');
   return (dispatch, getState) => {
     return fetch(`${api}/api/queue/pop`, {
       method: 'post'
@@ -33,6 +35,7 @@ export function getVideo() {
 }
 
 export function getRelatedVideo(isrc) {
+  console.log('getRelatedVideo');
   return (dispatch, getState) => {
     const token = getState().auth.access_token;
     const api = `https://apiv2.vevo.com/video/${isrc}/related`
