@@ -32,10 +32,11 @@ export class Home extends Component {
     const divStyle = {
       position: 'fixed',
       bottom: 0,
-      height: '0.2rem',
+      height: '0.1rem',
       width: this.state.progress,
       background: 'white',
-      transition: 'width 2s'
+      opacity: 0.7,
+      transition: 'width 1s'
     };
     return (
       <div className={ styles.default }>
