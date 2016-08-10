@@ -6,12 +6,13 @@ export function getRandom(videos) {
 }
 
 export function buildArtistString(artists) {
+  console.log('artists is', artists);
   if (Array.isArray(artists)) {
-    let featureString = artists.slice(1).map(x => x.name).join(', ')
+    let featureString = artists.slice(1).map(x => x.name).join(', ');
     if (featureString.length > 0) {
-      featureString = ` ft. ${featureString}`
+      featureString = ` ft. ${featureString}`;
     }
-    return `${artists[0].name}${featureString}`
+    return `${artists[0].name}${featureString}`;
   }
-  return 'Unknown Artist'
+  return 'Unknown Artist';
 }
